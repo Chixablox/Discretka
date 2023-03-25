@@ -52,8 +52,9 @@ namespace Алгоритм_Форда_Беллмана
             for(var i = 1; i<n; i++)
             {
                 int min = 9999;
-                for(var j=2; j<n+1; j++)
+                for(var j=1; j<n+1; j++)
                 {
+                    if (j == x) continue;
                     for (var k = 1; k < n + 1; k++)
                     {
                         if (otvet[k, i] + isxod[k, j] < min)
