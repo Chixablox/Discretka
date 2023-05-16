@@ -19,8 +19,6 @@ namespace ConsoleApplication17
             int n = Convert.ToInt32(Console.ReadLine());
             int min = 99999;
             int otvet = 0;
-            int v_1 = 0;
-            int v_2 = 0;
             for (var i = 0; i < m; i++)
             {
                 Console.WriteLine("Введите первую вершину");
@@ -36,8 +34,7 @@ namespace ConsoleApplication17
             int stok = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             List<List<int>> puti = new List<List<int>>();
-            List<List<int>> lenputi = new List<List<int>>();
-            List<int> pusto =  new List<int>();
+            List<int> pusto = new List<int>();
             puti.Add(pusto);
             puti[0].Add(istok);
             for (var i = 0; i < n - 1; i++)
@@ -62,6 +59,7 @@ namespace ConsoleApplication17
                     }
                 }
             }
+            //Удаление лишних путей(где конец не сток)
             for (var i = 0; i < puti.Count; i++)
             {
                 if (puti[i][puti[i].Count - 1] != stok)
@@ -70,18 +68,11 @@ namespace ConsoleApplication17
                     i--;
                 }
             }
-            for (var i = 0; i < puti.Count; i++)
-            {
-                for (var j = 0; j < puti[i].Count; j++)
-                {
-                    Console.Write(puti[i][j] + " ");
-                }
-                Console.WriteLine();
-            }
             int p = 0;
+            //
             for (var i = 0; i < puti.Count; i++)
             {
-                for(var j=0; j<puti[i].Count-1; j++)
+                for (var j = 0; j < puti[i].Count - 1; j++)
                 {
                     for (var k = 0; k < m; k++)
                     {
@@ -91,7 +82,6 @@ namespace ConsoleApplication17
                             if (len[k] < min) min = len[k];
                         }
                     }
-
                 }
                 for (var j = 0; j < puti[i].Count - 1; j++)
                 {
@@ -103,7 +93,6 @@ namespace ConsoleApplication17
                             len[k] = len[k] - min;
                         }
                     }
-
                 }
                 p = 0;
                 otvet += min;
