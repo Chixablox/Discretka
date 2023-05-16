@@ -69,9 +69,10 @@ namespace ConsoleApplication17
                 }
             }
             int p = 0;
-            //
+            //Подсчёт потока
             for (var i = 0; i < puti.Count; i++)
             {
+                //Вычисление минимального ребра в пути
                 for (var j = 0; j < puti[i].Count - 1; j++)
                 {
                     for (var k = 0; k < m; k++)
@@ -83,6 +84,7 @@ namespace ConsoleApplication17
                         }
                     }
                 }
+                //Изменение пропускной способности дуг(p - показатель налчия нулевого ребра(если нулевое(насыщенное) ребро в пути есть, то цикл не делается))
                 for (var j = 0; j < puti[i].Count - 1; j++)
                 {
                     for (var k = 0; k < m; k++)
